@@ -25,7 +25,9 @@ function substractOneSecond() {
         countdown.innerHTML = initialCountdown == '25:00' ? "5:00" : '25:00'; // reset the countdown
       }
       speak(`${min} minutes`); // speak the minutes);
-      notifyMe(min) // notify the user
+      if (!min % 5) { 
+        notifyMe(min); // notify the user every 5 minutes
+      }
       min--; // substract one minute
       sec = 59; // set seconds to 59
     }
@@ -86,7 +88,7 @@ function notifyMe(min) {
       body: "Focus!",
       icon: "./assets/check.png",
     })
-    setTimeout(() => notification.close(), 3 * 1000);
+    setTimeout(() => notification.close(), 5 * 1000);
     // …
   } else if (Notification.permission !== "denied") {
     // We need to ask the user for permission
@@ -105,6 +107,9 @@ function notifyMe(min) {
   // want to be respectful there is no need to bother them anymore.
 }
 
+/**
+ * Increment the cycles counter
+ */
 function incrementCyclesCounter() {
   let cyclesCounter = document.getElementById("cycles-counter")
   cyclesCounter.innerHTML = parseInt(cyclesCounter.innerHTML) + 1
