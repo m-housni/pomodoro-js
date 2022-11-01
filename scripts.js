@@ -10,6 +10,7 @@ function substractOneSecond() {
 
     // get the current countdown
     let countdown = document.getElementById("countdown")
+    const initialCountdown = countdown.innerHTML 
 
     // get the current minutes and seconds from the countdown
     let [min, sec] = countdown.innerHTML.split(":")
@@ -19,8 +20,9 @@ function substractOneSecond() {
       if (min == 0) {
         beep("tak"); // beep when the countdown is over
         speak("Tres bien! Prends une pause!"); // speak when the countdown is over'
-        clearInterval(interval); // stop the interval
-        return; // end
+        // clearInterval(interval); // stop the interval
+        incrementCyclesCounter(); // increment the cycles counter
+        countdown.innerHTML = initialCountdown == '25:00' ? "5:00" : '25:00'; // reset the countdown
       }
       speak(`${min} minutes`); // speak the minutes);
       notifyMe(min) // notify the user
@@ -99,11 +101,13 @@ function notifyMe(min) {
       }
     });
   }
-
   // At last, if the user has denied notifications, and you
   // want to be respectful there is no need to bother them anymore.
-  
+}
 
+function incrementCyclesCounter() {
+  let cyclesCounter = document.getElementById("cycles-counter")
+  cyclesCounter.innerHTML = parseInt(cyclesCounter.innerHTML) + 1
 }
 
 
