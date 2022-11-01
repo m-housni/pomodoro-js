@@ -45,9 +45,14 @@ a {
   background: rgba(255, 255, 255, 0.3);
 }
 
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
 .btn img, .logo img {
-  width: 16px;
-  margin-right: 5px;
+  width: 22px;
+  margin-right: 1px;
 }
 
 .btn.profile:hover {
