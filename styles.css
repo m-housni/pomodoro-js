@@ -63,13 +63,13 @@ a {
 .card {
   width: 350px;
   margin: 0 auto;
-  background: #DA8986;
+  background: #CF6764;
   padding: 20px 40px;
   margin-top: 40px;
   border-radius: 7px;
 }
 
-.countdown {
+#countdown {
   font-size: 7rem;
   font-weight: 700;
   text-align: center;
