@@ -1,6 +1,7 @@
-.container {
-    width: 720px;
-    margin: 0 auto;
+body {
+  background-color: #CA5652;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
 }
 
 header nav, header nav ul {
@@ -16,9 +17,40 @@ header nav ul li:not(:last-child) {
 
 a {
   text-decoration: none;
-  color: #888;
+  color: #fff;
 }
 
-a:hover {
-  color: #000;
+.container {
+    width: 720px;
+    margin: 0 auto;
+}
+
+.btn {
+  padding: 10px 10px;
+  background: rgba(255, 255, 255, 0.2);;
+  color: #fff;
+  font-size: .9rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn.profile {
+  background: #936C61;
+  color: #fff;
+}
+
+.btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.btn img, .logo img {
+  width: 16px;
+  margin-right: 5px;
+}
+
+.btn.profile:hover {
+  background: #936C61;
+  color: #ddd;
 }
