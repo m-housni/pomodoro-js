@@ -71,7 +71,7 @@ function substractOneSecond() {
       }
     }
     countdown.innerHTML = `${min}:${sec}`; // update the countdown
-  }, 100);
+  }, 1000);
 
   return interval;
 }
