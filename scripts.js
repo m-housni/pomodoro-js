@@ -1,35 +1,43 @@
 /**
+ * interval identifier for setInterval in the substractOneSecond function
+ */
+let interval = null
+
+const countdown = document.getElementById("countdown")
+// get the current minutes and seconds from the countdown
+let [initialMin, initialSec] = countdown.innerHTML.trim(' ').split(":")
+
+/**
  * Substruct a second from the countdown element
  * 
  * @returns {void}
  * 
- * @example 25:00 -> 24:59
+ * @example 01:00 -> 24:59
  */
 function substractOneSecond() {
-  let interval = setInterval(function () {
-
-    // get the current countdown
-    let countdown = document.getElementById("countdown")
-    const initialCountdown = countdown.innerHTML 
-
-    // get the current minutes and seconds from the countdown
-    let [min, sec] = countdown.innerHTML.split(":")
-
-    // 
+  interval = setInterval(function () {
+      
+    let [min, sec] = countdown.innerHTML.trim(" ").split(":");
+      
     if (sec == 0) {
       if (min == 0) {
         beep("tak"); // beep when the countdown is over
         speak("Tres bien! Prends une pause!"); // speak when the countdown is over'
         // clearInterval(interval); // stop the interval
         incrementCyclesCounter(); // increment the cycles counter
-        countdown.innerHTML = initialCountdown == '25:00' ? "5:00" : '25:00'; // reset the countdown
+        min = '00'
+        sec = initialSec == '15' ? '05' : '15' // set the initial minutes and seconds
+        initialSec = sec
+        console.log(min, sec)
       }
-      speak(`${min} minutes`); // speak the minutes);
+      speak(`${min} minutes`) // speak the minutes);
       if (!min % 5) { 
         notifyMe(min); // notify the user every 5 minutes
       }
-      min--; // substract one minute
-      sec = 59; // set seconds to 59
+      if (min > 0) {
+        min--; // substract one minute
+        sec = 59; // set seconds to 59
+      }
     }
     else { 
       sec-- // substract one second
@@ -39,6 +47,8 @@ function substractOneSecond() {
     }
     countdown.innerHTML = `${min}:${sec}` // update the countdown
   }, 1000)
+
+  return interval
 }
 
 /**
@@ -115,5 +125,17 @@ function incrementCyclesCounter() {
   cyclesCounter.innerHTML = parseInt(cyclesCounter.innerHTML) + 1
 }
 
-
-substractOneSecond()
+/**
+ * Start or stop the pomodoro
+ */
+function startOrStop() { 
+  let startButton = document.getElementById("start-btn")
+  if (startButton.innerHTML == "START") {
+    startButton.innerHTML = "STOP"
+    substractOneSecond()
+  }
+  else {
+    startButton.innerHTML = "START"
+    clearInterval(interval)
+  }
+}
