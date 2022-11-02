@@ -49,33 +49,65 @@
           <div class="menu">
             <ul>
               <li>
-                <a href="about.html" class="btn bg-dark">
-                  Pomodoro
-                </a>
+                <span onclick="resetPomodoro('5:00')" class="btn">
+                  5/1
+                </span>
               </li>
               <li>
-                <a href="about.html" class="btn">
-                  Short Break
-                </a>
+                <span onclick="resetPomodoro('10:00')" class="btn">
+                  10/2
+                </span>
               </li>
               <li>
-                <a href="profile.html" class="btn">
-                  Long Break
-                </a>
+                <span onclick="resetPomodoro('25:00')" class="btn">
+                  25/5
+                </span>
+              </li>
+              <li>
+                <span onclick="resetPomodoro('50:00')" class="btn">
+                  50/10
+                </span>
+              </li>
+              <li>
+                <span onclick="resetPomodoro('100:00')" class="btn">
+                  100/20
+                </span>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <span class="btn" id="ctr5">
+                  
+                </span>
+              </li>
+              <li>
+                <span class="btn" id="ctr10">
+                  
+                </span>
+              </li>
+              <li>
+                <span class="btn" id="ctr25">
+                  
+                </span>
+              </li>
+              <li>
+                <span class="btn" id="ctr50">
+                  
+                </span>
+              </li>
+              <li>
+                <span class="btn" id="ctr100">
+                  
+                </span>
               </li>
             </ul>
           </div>
           <div id="countdown">
-            00:15
+            
           </div>
           <div class="controls">
             <button class="start-btn" id="start-btn" onclick="startOrStop()">START</button>
           </div>
-        </div>
-
-        <div class="cycles">
-          #<span id="cycles-counter">12</span>
-          <p>Time to focus!</p>
         </div>
       </section>
     </main>
