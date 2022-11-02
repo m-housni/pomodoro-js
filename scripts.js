@@ -70,7 +70,7 @@ function substractOneSecond() {
         sec = "0" + sec; // add a leading zero
       }
     }
-    countdown.innerHTML = `${min}:${sec}`; // update the countdown
+    countdown.innerHTML = document.getElementsByTagName('title')[0].innerHTML = `${min}:${sec}`; // update the countdown
   }, 1000);
 
   return interval;
