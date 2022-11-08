@@ -9,9 +9,13 @@ Check the demo [here](https://m-housni.github.io/pomodoro-js).
 
 ## Features
 - define focus and break time
-- define the number of cycles
 - start, pause and reset the timer
 - desktop/sound notifications
+
+## Plans 
+Free Plan # Premium Plan 19$ -> 3,99$ 
+
+Runs on Windows Mac Android and Iphone
 
 ## Usage
 Clone the repository and open the `index.html` file in your browser.
